@@ -1,0 +1,44 @@
+﻿@using S_c_first.Models
+@model S_c_first.Models.User_M
+@{
+    ViewData["Title"] = "UpdateUser";
+    User_M user = TempData["userTemp"] as User_M;
+}
+<h1>UpdateUser</h1>
+<div class="container">
+    <div asp-validation-summary="All"></div>
+        <form action="/home/UpdateUserFinal" method="post">
+    <div class="form-group">
+        <input type="hidden" asp-for="id" value="@user.id" />
+        <label>Email address</label>
+        <input type="text" placeholder="Enter email" asp-for="email" value="@user.email"/>
+        <span asp-validation-for="email" class="text-danger"></span>
+        <br />
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <br /><br />
+    </div>
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" placeholder="example: John King" asp-for="Name" value="@user.Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <br />
+        <label>Username</label>
+        <input type="text" placeholder="Username" asp-for="Username" value="@user.Username" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <br />
+        <label>Age</label>
+        <input type="number" asp-for="Age" value="@user.Age" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
